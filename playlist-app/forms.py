@@ -1,6 +1,7 @@
 """Forms for playlist app."""
 
-from wtforms import SelectField
+from wtforms import SelectField, StringField, TextAreaField
+from wtforms.validators import InputRequired
 from flask_wtf import FlaskForm
 
 
@@ -8,13 +9,15 @@ class PlaylistForm(FlaskForm):
     """Form for adding playlists."""
 
     # Add the necessary code to use this form
-
+    name = StringField("Playlist Name", validators=[InputRequired()])
+    description = TextAreaField("Playlist Description", validators=[InputRequired()])
 
 class SongForm(FlaskForm):
     """Form for adding songs."""
 
     # Add the necessary code to use this form
-
+    title = StringField("Song Title", validators=[InputRequired()])
+    artist = StringField("Artist Name", validators=[InputRequired()])
 
 # DO NOT MODIFY THIS FORM - EVERYTHING YOU NEED IS HERE
 class NewSongForPlaylistForm(FlaskForm):

@@ -4,6 +4,9 @@
 
 <h1>Add a song to {{ playlist.name }}</h1>
 
-<h1>Add a form that when submitted adds a song to this playlist!</h1>
-
+<form method="POST" action="{{ url_for('add_song_to_playlist', playlist_id=playlist.id) }}">
+  {{ form.hidden_tag() }}
+  {{ form.song.label }} {{ form.song() }}
+  <input type="submit" value="Add Song to Playlist">
+</form>
 {% endblock %}
